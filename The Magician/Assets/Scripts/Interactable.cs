@@ -38,5 +38,10 @@ namespace TheMagician
             onDropped.Invoke();
             return true;
         }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

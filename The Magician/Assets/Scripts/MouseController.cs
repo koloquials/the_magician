@@ -77,6 +77,10 @@ namespace TheMagician
                             {
                                 _interactableBeingHeld.transform.position = _interactableOriginalPosition;
                             }
+                            else
+                            {
+                                _interactableBeingHeld.Destroy();
+                            }
                             _interactableBeingHeld = null;
                         }
 

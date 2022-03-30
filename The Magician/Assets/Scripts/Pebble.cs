@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace TheMagician
@@ -9,6 +10,8 @@ namespace TheMagician
     public class Pebble : Interactable
     {
         [SerializeField] LayerMask contactLayerMask;
+        [SerializeField] UnityEvent onReleaseBackToTable;
+        [SerializeField] UnityEvent onDroppedIntoBowl;
 
         RaycastHit2D _contactHit;
 
@@ -31,9 +34,15 @@ namespace TheMagician
                 if(bowl)
                 {
                     bowl.AddedPebble();
+                    onDroppedIntoBowl.Invoke();
+                    return true;
                 }
 
-                return true;
+                return false;
+            }
+            else
+            {
+                onReleaseBackToTable.Invoke();
             }
 
             return false;
