@@ -1,0 +1,25 @@
+﻿title: Test0
+tags:
+position: -364,-87
+---
+This is the beginning of the Test0 node in TheMagicianDialogue.yarn.
+I was invoked because I was set under the Dialogue Node Name in the inspector of PhaseManager.
+Once this dialogue ends, the PhaseManager will be told to proceed onto the next step...
+That is, whether if it's supposed to be gameplay or more dialogue like this. (END OF DIALOGUE)
+===
+title: Test1
+position: -360,-38
+---
+This is the beginning of the Test1 node in TheMagicianDialogue.yarn.
+I was invoked because I was set under the Dialogue Node Name in the inspector of PhaseManager.
+You may have noticed more stuff appearing, that is because specific objects were enabled under OnStartSubphase.
+We can do the same with disabling stuff under OnEndSubphase if we don't need to hide things once this dialogue is over.
+Let's try adding a pebble to the bowl to proceed. (END OF DIALOGUE -> ENTERING GAMEPLAY PHASE)
+===
+title: Test2
+position: -363,11
+---
+Nice! You added the pebble and the game proceeds to the dialogue portion.
+Remember you can set events in PhaseManager, Pebble, MouseController, etc for stuff you want to happen.
+Dialogue will end here cause this is as far as things can go
+===
