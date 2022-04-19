@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,16 +9,21 @@ namespace TheMagician
     public class Pebble : Interactable
     {
         [SerializeField] LayerMask contactLayerMask;
-        [SerializeField] UnityEvent onReleaseBackToTable;
+        [SerializeField] UnityEvent onReturnToTable;
         [SerializeField] UnityEvent onDroppedIntoBowl;
 
         RaycastHit2D _contactHit;
+        public Action<Pebble> OnDestroyed;
+
+        protected override void Awake()
+        {
+            base.Awake();
+        }
 
         public override bool Dropped()
         {
             State = State.DROPPED;
 
-            // Check if dropped onto bowl
             Vector3 position = gameObject.transform.position;
             Vector2 size = Vector2.right * 1.0f + Vector2.up * 1.0f;
             float angle = 0.0f; // Might change this to be the pebble's rotation
@@ -34,7 +38,7 @@ namespace TheMagician
                 if(bowl)
                 {
                     bowl.AddedPebble();
-                    onDroppedIntoBowl.Invoke();
+                    onDroppedIntoBowl?.Invoke();
                     return true;
                 }
 
@@ -42,10 +46,16 @@ namespace TheMagician
             }
             else
             {
-                onReleaseBackToTable.Invoke();
+                onReturnToTable?.Invoke();
             }
 
             return false;
+        }
+
+        public override void Destroy()
+        {
+            OnDestroyed?.Invoke(this);
+            base.Destroy();
         }
     }
 }

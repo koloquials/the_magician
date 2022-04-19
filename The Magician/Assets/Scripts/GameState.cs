@@ -8,6 +8,7 @@ namespace TheMagician
     {
         PAUSED,
         GAMEPLAY,
-        DIALOGUE
+        DIALOGUE,
+        CREDITS
     }
 }

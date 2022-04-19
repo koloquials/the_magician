@@ -25,7 +25,7 @@ namespace TheMagician
             }
         }
 
-        public void StartNextPhase()
+        /*public void StartNextPhase()
         {
             _currentPhaseIndex++;
 
@@ -33,14 +33,23 @@ namespace TheMagician
             {
                 phases[_currentPhaseIndex].Start();
             }
-        }
+        }*/
 
-        public void Advance()
+        public void StartNextPhase()
         {
-           if(!phases[_currentPhaseIndex].Advance())
-           {
-                StartNextPhase();
-           }
+            /*if(!phases[_currentPhaseIndex].Advance())
+            {
+                 StartNextPhase();
+            }*/
+
+            phases[_currentPhaseIndex].End();
+
+            _currentPhaseIndex++;
+
+            if (_currentPhaseIndex < phases.Count)
+            {
+                phases[_currentPhaseIndex].Start();
+            }
         }
     }
 }

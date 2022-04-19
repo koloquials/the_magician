@@ -32,6 +32,8 @@ namespace TheMagician
                 {
                     pebble.gameObject.SetActive(false);
                 }
+
+                pebble.OnDestroyed += DestroyPebble;
             }
         }
 
@@ -42,6 +44,12 @@ namespace TheMagician
             {
                 pebble.gameObject.SetActive(val);
             }
+        }
+
+        public void DestroyPebble(Pebble pebble)
+        {
+            pebble.OnDestroyed -= DestroyPebble;
+            pebbles.Remove(pebble);
         }
     }
 

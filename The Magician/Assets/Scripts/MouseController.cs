@@ -22,12 +22,13 @@ namespace TheMagician
             HOLDING_ITEM
         }
 
-        List<RaycastHit2D> _raycastHits;
         GameplayInteractionState _gameplayInteractionState;
-        Interactable _interactableBeingHeld;
+
         RaycastHit2D _raycastHit2D;
+        List<RaycastHit2D> _raycastHits;
+
+        Interactable _interactableBeingHeld;
         Vector3 _holdOffset;
-        Vector3 _interactableOriginalPosition;
         Vector3 _position;
 
         public Vector3 Position => _position;
@@ -37,6 +38,12 @@ namespace TheMagician
             _raycastHits = new List<RaycastHit2D>();
             _gameplayInteractionState = GameplayInteractionState.NONE;
             _interactableBeingHeld = null;
+            GameStateManager.OnUnpause.AddListener(HandleHeldInteractableAfterUnpause);
+        }
+
+        private void OnApplicationQuit()
+        {
+            GameStateManager.OnUnpause.RemoveListener(HandleHeldInteractableAfterUnpause);
         }
 
         private void Update()
@@ -59,9 +66,10 @@ namespace TheMagician
                         if (_raycastHit2D)
                         {
                             _interactableBeingHeld = _raycastHit2D.collider.gameObject.GetComponent<Interactable>();
-                            _interactableOriginalPosition = _raycastHit2D.collider.gameObject.transform.position;
-                            _holdOffset = _raycastHit2D.collider.gameObject.transform.position - _position;
+                            _interactableBeingHeld.PickUp();
+                            _holdOffset = _interactableBeingHeld.transform.position - _position;
                             _gameplayInteractionState = GameplayInteractionState.HOLDING_ITEM;
+                            onPickupItem?.Invoke();
                         }
                     }
                 }
@@ -75,13 +83,14 @@ namespace TheMagician
                             // Reset interactble item's position if not dropped successfully
                             if (!_interactableBeingHeld.Dropped())
                             {
-                                _interactableBeingHeld.transform.position = _interactableOriginalPosition;
+                                _interactableBeingHeld.ResetPositionAndRotation();
                             }
                             else
                             {
                                 _interactableBeingHeld.Destroy();
                             }
                             _interactableBeingHeld = null;
+                            onReleaseItem?.Invoke();
                         }
 
                         _gameplayInteractionState = GameplayInteractionState.NONE;
@@ -98,6 +107,32 @@ namespace TheMagician
                 if (Input.GetMouseButtonDown(0))
                 {
                     onClickDuringDialogue.Invoke();
+                }
+            }
+        }
+
+        public void HandleHeldInteractableAfterUnpause()
+        {
+            if(GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY && _gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
+            {
+                if(_interactableBeingHeld && !Input.GetMouseButton(0)) // I guess the formert is more of a double check
+                {
+                    _interactableBeingHeld.ResetPositionAndRotation();
+                    _interactableBeingHeld = null;
+                    onReleaseItem?.Invoke();
+                    _gameplayInteractionState = GameplayInteractionState.NONE;
+                }
+            }
+        }
+
+        public void ReleaseInteractable()
+        {
+            if (GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY && _gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
+            {
+                if (_interactableBeingHeld)
+                {
+                    _interactableBeingHeld = null;
+                    _gameplayInteractionState = GameplayInteractionState.NONE;
                 }
             }
         }

@@ -11,13 +11,8 @@ namespace TheMagician
     {
         [SerializeField] DialogueRunner dialogueRunner;
         [SerializeField] LineView lineView;
-        [SerializeField] UnityEvent onPause;
-        [SerializeField] UnityEvent onResume;
 
         public static DialogueManager INSTANCE;
-
-        public UnityEvent OnPause => onPause;
-        public UnityEvent OnResume => onResume;
 
         private void Awake()
         {
