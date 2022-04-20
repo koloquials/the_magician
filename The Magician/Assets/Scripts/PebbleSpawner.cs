@@ -16,13 +16,16 @@ namespace TheMagician
 
         private void Awake()
         {
+            List<Sprite> spriteVariationCopy = new List<Sprite>(spriteVariations);
+
             foreach(Pebble pebble in pebbles)
             {
                 SpriteRenderer sr = pebble.gameObject.GetComponent<SpriteRenderer>();
                 if(sr) // Probably don't need to check for this since Pebble will require the SpriteRenderer component so that it will always exist
                 {
-                    // TODO: Don't repeat variations if already set
-                    sr.sprite = spriteVariations[Random.Range(0, spriteVariations.Count)];
+                    int index = Random.Range(0, spriteVariationCopy.Count);
+                    sr.sprite = spriteVariationCopy[index];
+                    spriteVariationCopy.Remove(spriteVariationCopy[index]);
                 }
 
                 pebble.gameObject.transform.Rotate(Vector3.forward, Random.Range(varyingRotationAngleMinMax.x, varyingRotationAngleMinMax.y));
@@ -35,6 +38,8 @@ namespace TheMagician
 
                 pebble.OnDestroyed += DestroyPebble;
             }
+
+            spriteVariationCopy.Clear();
         }
 
         // Call this or just manually set the pebbles

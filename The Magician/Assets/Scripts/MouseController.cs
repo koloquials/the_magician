@@ -41,7 +41,7 @@ namespace TheMagician
             GameStateManager.OnUnpause.AddListener(HandleHeldInteractableAfterUnpause);
         }
 
-        private void OnApplicationQuit()
+        private void OnDestroy()
         {
             GameStateManager.OnUnpause.RemoveListener(HandleHeldInteractableAfterUnpause);
         }

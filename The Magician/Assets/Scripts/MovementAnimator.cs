@@ -27,7 +27,7 @@ namespace TheMagician
         private void Update()
         {
             if (!_isMoving) return;
-            if (GameStateManager.INSTANCE.CurrentGameState != activeGameState) return;
+            if (!GameStateManager.IsInGameModeState()) return;
 
             _currentTime += Time.deltaTime;
             _currentTime = Mathf.Clamp(_currentTime, 0.0f, moveToTargetTime);

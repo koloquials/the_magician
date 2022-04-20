@@ -22,6 +22,7 @@ namespace TheMagician
             {
                 _currentPhaseIndex = 0;
                 phases[_currentPhaseIndex].Start();
+                Debug.Log("Phase: 0");
             }
         }
 
@@ -49,6 +50,7 @@ namespace TheMagician
             if (_currentPhaseIndex < phases.Count)
             {
                 phases[_currentPhaseIndex].Start();
+                Debug.Log("Phase: " + _currentPhaseIndex);
             }
         }
     }

@@ -58,5 +58,11 @@ namespace TheMagician
                 OnUnpause?.Invoke();
             }
         }
+
+        public static bool IsInGameModeState()
+        {
+            GameState state = _currentGameState & GameState.GAME_MODE;
+            return (state == GameState.GAMEPLAY || state == GameState.DIALOGUE);
+        }
     }
 }
