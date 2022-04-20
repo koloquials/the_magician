@@ -34,7 +34,7 @@ namespace TheMagician
         }
         private void Update()
         {
-            Debug.Log("Current game state: " + _currentGameState);
+            //Debug.Log("Current game state: " + _currentGameState);
         }
 
         public static void SetGameState(GameState gameState)

@@ -41,6 +41,7 @@ namespace TheMagician
                     State = State.DROPPED;
                     onSlipped?.Invoke();
                     rigidBody.gravityScale = gravityScaleAfterSlipping;
+                    _currentTimeHeld = 0f;
                 }
             }
         }
