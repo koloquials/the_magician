@@ -79,5 +79,10 @@ namespace TheMagician
         {
             ShouldPickup = val;
         }
+
+        public void ResetState()
+        {
+            State = State.NOT_PICKED_UP_YET;
+        }
     }
 }
