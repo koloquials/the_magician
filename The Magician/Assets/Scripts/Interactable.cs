@@ -24,11 +24,14 @@ namespace TheMagician
         protected Vector3 StartingPosition;
         protected Quaternion StartingRotation;
 
+        protected bool ShouldPickup;
+
         protected virtual void Awake()
         {
             State = State.NOT_PICKED_UP_YET;
             StartingPosition = transform.position;
             StartingRotation = transform.rotation;
+            ShouldPickup = true;
         }
 
         public virtual bool PickUp()
@@ -70,6 +73,11 @@ namespace TheMagician
         {
             transform.position = StartingPosition;
             transform.rotation = StartingRotation;
+        }
+
+        public void SetShouldPickup(bool val)
+        {
+            ShouldPickup = val;
         }
     }
 }

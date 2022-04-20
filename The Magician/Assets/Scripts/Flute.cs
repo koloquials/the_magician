@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace TheMagician
 {
-    public class Stonefruit : Interactable
+    public class Flute : Interactable
     {
         [SerializeField] Rigidbody2D rigidBody;
         [SerializeField] float holdTimeTillSlip;
@@ -15,8 +15,6 @@ namespace TheMagician
         [SerializeField] UnityEvent onSlipped;
 
         float _currentTimeHeld;
-        float _currentRotationAngle;
-        float _desiredRotationAngle;
 
         protected override void Awake()
         {
@@ -33,16 +31,12 @@ namespace TheMagician
         private void Update()
         {
             if (GameStateManager.INSTANCE.CurrentGameState != GameState.GAMEPLAY) return;
-            if (!ShouldPickup) return;
 
-            if(State == State.PICKED_UP)
+            if (State == State.PICKED_UP)
             {
                 _currentTimeHeld += Time.deltaTime;
-                _currentRotationAngle += Time.deltaTime;
-                float rotationProgress = Mathf.Clamp(_currentRotationAngle, 0f, rotationTimeAfterPickup);
-                transform.rotation = Quaternion.Slerp(StartingRotation, Quaternion.AngleAxis(_desiredRotationAngle, Vector3.forward), rotationProgress / rotationTimeAfterPickup);
 
-                if(_currentTimeHeld >= holdTimeTillSlip)
+                if (_currentTimeHeld >= holdTimeTillSlip)
                 {
                     State = State.DROPPED;
                     onSlipped?.Invoke();
@@ -64,8 +58,7 @@ namespace TheMagician
             onPickUp.Invoke();
 
             rigidBody.gravityScale = 0f;
-            _desiredRotationAngle = Random.Range(varyingRotationAngleMinMax.x, varyingRotationAngleMinMax.y);
-            _currentRotationAngle = 0f;
+
             return true;
         }
 
