@@ -46,16 +46,6 @@ namespace TheMagician
 
             float normalizedTime = (_currentTime / _targetFadeTime);
 
-            Stonefruit sf = GetComponent<Stonefruit>();
-
-            if (sf != null)
-            {
-                Debug.Log("curr time: " + _currentTime);
-                Debug.Log("target fade time: " + _targetFadeTime);
-                Debug.Log(" start alpha: " + _startAlpha);
-                Debug.Log(" target alpha: " + _targetAlpha);
-            }
-
                 Color color = spriteRenderer.color;
             color.a = Mathf.Lerp(_startAlpha, _targetAlpha, _currentAnimationCurve.Evaluate(normalizedTime));
             spriteRenderer.color = color;
@@ -84,7 +74,6 @@ namespace TheMagician
             _currentAnimationCurve = fadeInCurve;
             _fadeComplete = onFadeInComplete;
             Stonefruit sf = GetComponent<Stonefruit>();
-            if(sf) Debug.Log("FADING IN");
         }
 
         public void FadeOut()
@@ -102,9 +91,6 @@ namespace TheMagician
             _currentAnimationCurve = fadeOutCurve;
             _fadeComplete = onFadeOutComplete;
             Stonefruit sf = GetComponent<Stonefruit>();
-
-            if(sf) Debug.Log("FADING OUT");
-
         }
     }
 }

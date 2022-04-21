@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using Yarn.Unity;
 
@@ -25,6 +26,9 @@ namespace TheMagician
         [Tooltip("If isDialogue is set to false, gameplay (i.e. interaction phase) will be assumed")]
         [SerializeField] public bool isDialogue;
         [SerializeField] public string dialogueNodeName;
+
+        [Tooltip("Just like it's named, it's just a note for seeing a description of what this phase is supposed to do. Only meant to be readable in inspector")]
+        [SerializeField, TextArea] public string phaseDescription;
         [SerializeField] public UnityEvent onStartPhase;
         [SerializeField] public UnityEvent onEndPhase;
 

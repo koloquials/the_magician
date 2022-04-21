@@ -50,6 +50,15 @@ namespace TheMagician
                     _currentTimeHeld = 0f;
                 }
             }
+
+            /*// If player accidentally drops it off screen
+            if(transform.position.y <= -5)
+            {
+                rigidBody.gravityScale = 0f;
+                rigidBody.velocity = Vector2.zero;
+                State = State.DROPPED;
+                ResetPositionAndRotation();
+            }*/
         }
 
         public override bool PickUp()
