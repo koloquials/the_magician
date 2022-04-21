@@ -2388,6 +2388,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1667790596}
+          m_TargetAssemblyTypeName: TheMagician.Interactable, Assembly-CSharp
+          m_MethodName: SetShouldPickup
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls: []
@@ -2669,6 +2681,39 @@ MonoBehaviour:
   - isDialogue: 0
     dialogueNodeName: 
     phaseDescription: Player tries to pick up flute
+    onStartPhase:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1544968027}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 551725744}
+          m_TargetAssemblyTypeName: TheMagician.Interactable, Assembly-CSharp
+          m_MethodName: SetShouldPickup
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    onEndPhase:
+      m_PersistentCalls:
+        m_Calls: []
+  - isDialogue: 0
+    dialogueNodeName: 
+    phaseDescription: Bowl + pebbles spawn
     onStartPhase:
       m_PersistentCalls:
         m_Calls:

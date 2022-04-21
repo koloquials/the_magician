@@ -66,10 +66,16 @@ namespace TheMagician
                         if (_raycastHit2D)
                         {
                             _interactableBeingHeld = _raycastHit2D.collider.gameObject.GetComponent<Interactable>();
-                            _interactableBeingHeld.PickUp();
-                            _holdOffset = _interactableBeingHeld.transform.position - _position;
-                            _gameplayInteractionState = GameplayInteractionState.HOLDING_ITEM;
-                            onPickupItem?.Invoke();
+                            if(_interactableBeingHeld.PickUp())
+                            {
+                                _holdOffset = _interactableBeingHeld.transform.position - _position;
+                                _gameplayInteractionState = GameplayInteractionState.HOLDING_ITEM;
+                                onPickupItem?.Invoke();
+                            }
+                            else
+                            {
+                                _interactableBeingHeld = null;
+                            }
                         }
                     }
                 }
@@ -115,9 +121,17 @@ namespace TheMagician
         {
             if(GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY && _gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
             {
-                if(_interactableBeingHeld && !Input.GetMouseButton(0)) // I guess the formert is more of a double check
+                if(_interactableBeingHeld && !Input.GetMouseButton(0)) // I guess the former is more of a double check
                 {
-                    _interactableBeingHeld.ResetPositionAndRotation();
+                    // Reset interactble item's position if not dropped successfully
+                    if (!_interactableBeingHeld.Dropped())
+                    {
+                        _interactableBeingHeld.ResetPositionAndRotation();
+                    }
+                    else
+                    {
+                        _interactableBeingHeld.Destroy();
+                    }
                     _interactableBeingHeld = null;
                     onReleaseItem?.Invoke();
                     _gameplayInteractionState = GameplayInteractionState.NONE;

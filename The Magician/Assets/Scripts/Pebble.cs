@@ -46,6 +46,7 @@ namespace TheMagician
             }
             else
             {
+                ResetPositionAndRotation();
                 onReturnToTable?.Invoke();
             }
 

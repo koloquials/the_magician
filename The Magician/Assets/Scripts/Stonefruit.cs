@@ -50,19 +50,12 @@ namespace TheMagician
                     _currentTimeHeld = 0f;
                 }
             }
-
-            /*// If player accidentally drops it off screen
-            if(transform.position.y <= -5)
-            {
-                rigidBody.gravityScale = 0f;
-                rigidBody.velocity = Vector2.zero;
-                State = State.DROPPED;
-                ResetPositionAndRotation();
-            }*/
         }
 
         public override bool PickUp()
         {
+            if (!ShouldPickup) return false;
+
             if (State == State.NOT_PICKED_UP_YET)
             {
                 if (optionalLabel) optionalLabel.gameObject.SetActive(false);
@@ -82,8 +75,7 @@ namespace TheMagician
         {
             State = State.DROPPED;
             _currentTimeHeld = 0f; // Reset time
-            rigidBody.gravityScale = 0f;
-            rigidBody.velocity = Vector2.zero;
+            ResetRigidbody();
             return false;
         }
 
