@@ -7,11 +7,24 @@ namespace TheMagician
 {
     public class Bowl : MonoBehaviour
     {
-        [SerializeField] UnityEvent onComplete; 
+        [SerializeField] UnityEvent onComplete;
+
+        int _numPebblesToDropTillCompletion = 1;
+        int _currentNumPebbledDroppedInside = 0;
         public void AddedPebble()
         {
-            // Might call this in a different function but testing for now
-            onComplete.Invoke();            
+            _currentNumPebbledDroppedInside++;
+
+            if(_currentNumPebbledDroppedInside >= _numPebblesToDropTillCompletion)
+            {
+                onComplete.Invoke();
+            }
+        }
+
+        public void SetPebbleAmountGoal(int val)
+        {
+            _numPebblesToDropTillCompletion = val;
+            _currentNumPebbledDroppedInside = 0;
         }
     }
 }

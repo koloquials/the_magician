@@ -16,15 +16,18 @@ namespace TheMagician
     public class Interactable : MonoBehaviour
     {
         [SerializeField] protected UnityEvent OnFirstPickUp;
-        [SerializeField] protected UnityEvent onPickUp;
-        [SerializeField] protected UnityEvent onDropped;
-        [SerializeField] protected Label optionalLabel;
+        [SerializeField] protected UnityEvent OnPickUp;
+        [SerializeField] protected UnityEvent OnDropped;
+        [SerializeField] protected Label OptionalLabel;
+        [SerializeField] protected Material GlowMaterial;
 
         protected State State;
         protected Vector3 StartingPosition;
         protected Quaternion StartingRotation;
 
         protected bool ShouldPickup;
+        protected SpriteRenderer SpriteRenderer;
+        protected Material OriginalMaterial;
 
         protected virtual void Awake()
         {
@@ -32,25 +35,27 @@ namespace TheMagician
             StartingPosition = transform.position;
             StartingRotation = transform.rotation;
             ShouldPickup = true;
+            SpriteRenderer = GetComponent<SpriteRenderer>();
+            OriginalMaterial = SpriteRenderer.material;
         }
 
         public virtual bool PickUp()
         {
             if (State == State.NOT_PICKED_UP_YET)
             {
-                if (optionalLabel) optionalLabel.gameObject.SetActive(false);
+                if (OptionalLabel) OptionalLabel.gameObject.SetActive(false);
                 OnFirstPickUp?.Invoke();
             }
 
             State = State.PICKED_UP;
-            onPickUp.Invoke();
+            OnPickUp.Invoke();
             return true;
         }
 
         public virtual bool Dropped()
         {
             State = State.DROPPED;
-            onDropped.Invoke();
+            OnDropped.Invoke();
             return true;
         }
 
@@ -83,6 +88,16 @@ namespace TheMagician
         public void ResetState()
         {
             State = State.NOT_PICKED_UP_YET;
+        }
+
+        public void Glow()
+        {
+            if(GlowMaterial) SpriteRenderer.material = GlowMaterial; // if check just in case we don't assign anything
+        }
+
+        public void Unglow()
+        {
+            SpriteRenderer.material = OriginalMaterial;
         }
     }
 }

@@ -58,12 +58,12 @@ namespace TheMagician
 
             if (State == State.NOT_PICKED_UP_YET)
             {
-                if (optionalLabel) optionalLabel.gameObject.SetActive(false);
+                if (OptionalLabel) OptionalLabel.gameObject.SetActive(false);
                 OnFirstPickUp?.Invoke();
             }
 
             State = State.PICKED_UP;
-            onPickUp.Invoke();
+            OnPickUp.Invoke();
 
             rigidBody.gravityScale = 0f;
             _desiredRotationAngle = Random.Range(varyingRotationAngleMinMax.x, varyingRotationAngleMinMax.y);
