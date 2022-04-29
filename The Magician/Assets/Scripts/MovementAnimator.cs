@@ -17,11 +17,21 @@ namespace TheMagician
         float _currentTime;
         Vector3 _startPosition;
 
+        private void Awake()
+        {
+            _isMoving = false;
+            _currentTime = 0f;
+        }
+
         private void Start()
         {
-            _currentTime = 0.0f;
-            _isMoving = false;
             _startPosition = gameObject.transform.position;
+            PhaseManager.INSTANCE.OnEndPhase.AddListener(Complete);
+        }
+
+        private void OnDestroy()
+        {
+            PhaseManager.INSTANCE.OnEndPhase.RemoveListener(Complete);
         }
 
         private void Update()
@@ -46,6 +56,13 @@ namespace TheMagician
         public void MoveToTarget()
         {
             _isMoving = true;
+        }
+
+        public void Complete()
+        {
+            if (!_isMoving) return;
+            if (!GameStateManager.IsInGameModeState()) return;
+            _currentTime = moveToTargetTime;
         }
     }
 }

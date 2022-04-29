@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TheMagician
 {
     public class PhaseManager : MonoBehaviour
     {
         [SerializeField] List<Phase> phases;
+        [SerializeField] public UnityEvent OnContinuePhase;
+        [SerializeField] public UnityEvent OnEndPhase;
 
         public static PhaseManager INSTANCE;
 
@@ -22,35 +25,24 @@ namespace TheMagician
             {
                 _currentPhaseIndex = 0;
                 phases[_currentPhaseIndex].Start();
-                Debug.Log("Phase: 0");
             }
         }
 
-        /*public void StartNextPhase()
+        public void StartNextPhase()
         {
-            _currentPhaseIndex++;
 
             if(_currentPhaseIndex < phases.Count)
             {
-                phases[_currentPhaseIndex].Start();
+                phases[_currentPhaseIndex].End();
+                OnEndPhase?.Invoke();
             }
-        }*/
-
-        public void StartNextPhase()
-        {
-            /*if(!phases[_currentPhaseIndex].Advance())
-            {
-                 StartNextPhase();
-            }*/
-
-            phases[_currentPhaseIndex].End();
 
             _currentPhaseIndex++;
 
             if (_currentPhaseIndex < phases.Count)
             {
                 phases[_currentPhaseIndex].Start();
-                Debug.Log("Phase: " + _currentPhaseIndex);
+                OnContinuePhase?.Invoke();
             }
         }
     }

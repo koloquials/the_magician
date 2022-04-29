@@ -33,6 +33,13 @@ namespace TheMagician
 
         public Vector3 Position => _position;
 
+        public static MouseController INSTANCE;
+
+        private void Awake()
+        {
+            if(!INSTANCE) INSTANCE = this;
+        }
+
         private void Start()
         {
             _gameplayInteractionState = GameplayInteractionState.NONE;
@@ -51,11 +58,13 @@ namespace TheMagician
             mousePos.z = Camera.main.nearClipPlane;
             _position = Camera.main.ScreenToWorldPoint(mousePos);
 
+            // Gameplay (interacting with objects) code
             if(GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY)
             {
                 Ray screenPointToRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                 _raycastHit2D = Physics2D.Raycast(screenPointToRay.origin, screenPointToRay.direction, Mathf.Infinity, interactableLayerMask);
 
+                // Check for glow
                 if (_raycastHit2D && (_gameplayInteractionState == GameplayInteractionState.NONE))
                 {
                     Interactable interactable = _raycastHit2D.collider.gameObject.GetComponent<Interactable>();
@@ -76,6 +85,7 @@ namespace TheMagician
                     }
                 }
 
+                // Check for picking up
                 if (Input.GetMouseButtonDown(0))
                 {
                     onClickDuringGameplay.Invoke();
@@ -104,6 +114,7 @@ namespace TheMagician
                     }
                 }
 
+                // Check for releasing
                 if (Input.GetMouseButtonUp(0))
                 {
                     if(_gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
@@ -132,7 +143,7 @@ namespace TheMagician
                     _interactable.gameObject.transform.position = _position + _holdOffset;
                 }
             }
-            else if(GameStateManager.INSTANCE.CurrentGameState == GameState.DIALOGUE)
+            else if(GameStateManager.INSTANCE.CurrentGameState == GameState.DIALOGUE) // Just click during dialogue to proceed
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -141,6 +152,7 @@ namespace TheMagician
             }
         }
 
+        // Function name says it all
         public void HandleHeldInteractableAfterUnpause()
         {
             if(GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY && _gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
@@ -163,6 +175,7 @@ namespace TheMagician
             }
         }
 
+        // Set in inspector, subscribed as an event
         public void ReleaseInteractable()
         {
             if (GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY && _gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)

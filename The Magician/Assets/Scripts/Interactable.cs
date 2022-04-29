@@ -39,6 +39,16 @@ namespace TheMagician
             OriginalMaterial = SpriteRenderer.material;
         }
 
+        protected virtual void Start()
+        {
+            PhaseManager.INSTANCE.OnEndPhase.AddListener(Unglow);
+        }
+
+        protected void OnDestroy()
+        {
+            PhaseManager.INSTANCE.OnEndPhase.RemoveListener(Unglow);
+        }
+
         public virtual bool PickUp()
         {
             if (State == State.NOT_PICKED_UP_YET)
@@ -80,7 +90,7 @@ namespace TheMagician
             transform.rotation = StartingRotation;
         }
 
-        public void SetShouldPickup(bool val)
+        public virtual void SetShouldPickup(bool val)
         {
             ShouldPickup = val;
         }
@@ -90,12 +100,13 @@ namespace TheMagician
             State = State.NOT_PICKED_UP_YET;
         }
 
-        public void Glow()
+        public virtual void Glow()
         {
+            if (!ShouldPickup) return;
             if(GlowMaterial) SpriteRenderer.material = GlowMaterial; // if check just in case we don't assign anything
         }
 
-        public void Unglow()
+        public virtual void Unglow()
         {
             SpriteRenderer.material = OriginalMaterial;
         }

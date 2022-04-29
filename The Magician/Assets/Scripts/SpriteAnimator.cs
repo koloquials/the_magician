@@ -8,10 +8,6 @@ namespace TheMagician
     public class SpriteAnimator : MonoBehaviour
     {
         [SerializeField] SpriteRenderer spriteRenderer;
-        /*[SerializeField] Color colorA;
-        [SerializeField] Color colorB;*/
-        //[SerializeField] float fadeTimeFromColorAToB;
-        //[SerializeField] float fadeTimeFromColorBToA;
         [SerializeField] float fadeInTime;
         [SerializeField] float fadeOutTime;
         [SerializeField] AnimationCurve fadeInCurve;
@@ -22,8 +18,6 @@ namespace TheMagician
         bool _isAnimating;
         float _currentTime;
         float _targetFadeTime;
-        //Color _startColor;
-        //Color _targetColor;
         float _startAlpha;
         float _targetAlpha;
         AnimationCurve _currentAnimationCurve;
@@ -34,6 +28,16 @@ namespace TheMagician
         {
             _currentTime = 0.0f;
             _isAnimating = false;
+        }
+
+        private void Start()
+        {
+            PhaseManager.INSTANCE.OnEndPhase.AddListener(Complete);
+        }
+
+        private void OnDestroy()
+        {
+            PhaseManager.INSTANCE.OnEndPhase.RemoveListener(Complete);
         }
 
         private void Update()
@@ -91,6 +95,13 @@ namespace TheMagician
             _currentAnimationCurve = fadeOutCurve;
             _fadeComplete = onFadeOutComplete;
             Stonefruit sf = GetComponent<Stonefruit>();
+        }
+
+        public void Complete()
+        {
+            if (!_isAnimating) return;
+            if (!GameStateManager.IsInGameModeState()) return;
+            _currentTime = _targetFadeTime;
         }
     }
 }
