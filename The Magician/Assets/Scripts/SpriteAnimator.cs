@@ -53,9 +53,7 @@ namespace TheMagician
 
             float normalizedTime = (_currentTime / _targetFadeTime);
 
-                Color color = spriteRenderer.color;
-            //color.a = Mathf.Lerp(_startAlpha, _targetAlpha, _currentAnimationCurve.Evaluate(normalizedTime));
-            Debug.Log("current alpha val; " + _currentAnimationCurve.Evaluate(normalizedTime));
+            Color color = spriteRenderer.color;
             color.a = _currentAnimationCurve.Evaluate(normalizedTime);
             spriteRenderer.color = color;
 
