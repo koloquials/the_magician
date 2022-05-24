@@ -46,7 +46,7 @@ namespace TheMagician
             {
                 if (DialogueManager.INSTANCE.NodeExists(dialogueNodeName))
                 {
-                    GameStateManager.SetGameState(GameState.DIALOGUE);
+                    //GameStateManager.SetGameState(GameState.DIALOGUE); 5/23 - refactoring out
                     DialogueManager.INSTANCE.StartDialogue(dialogueNodeName);
                 }
                 else
@@ -54,7 +54,9 @@ namespace TheMagician
                     Debug.LogError("ERROR: " + dialogueNodeName + " does not exist as a node title in Yarn script.");
                 }
             }
-            else GameStateManager.SetGameState(GameState.GAMEPLAY);
+            //else GameStateManager.SetGameState(GameState.GAMEPLAY); 5/23 - refactoring out
+
+            GameStateManager.SetGameState(GameState.GAMEPLAY);
         }
 
         // Returns true if we can advance to next subphase, otherwise false

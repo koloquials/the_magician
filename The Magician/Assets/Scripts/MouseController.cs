@@ -54,11 +54,95 @@ namespace TheMagician
 
         private void Update()
         {
+            if (!GameStateManager.IsInGameModeState()) return;
+
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             _position = Camera.main.ScreenToWorldPoint(mousePos);
 
-            // Gameplay (interacting with objects) code
+            Ray screenPointToRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            _raycastHit2D = Physics2D.Raycast(screenPointToRay.origin, screenPointToRay.direction, Mathf.Infinity, interactableLayerMask);
+
+            // Check for glow
+            if (_raycastHit2D && (_gameplayInteractionState == GameplayInteractionState.NONE))
+            {
+                Interactable interactable = _raycastHit2D.collider.gameObject.GetComponent<Interactable>();
+
+                if (_interactableBeingHovered != interactable)
+                {
+                    if (_interactableBeingHovered) _interactableBeingHovered.Unglow();
+                    _interactableBeingHovered = interactable;
+                    _interactableBeingHovered.Glow();
+                }
+            }
+            else
+            {
+                if (_interactableBeingHovered)
+                {
+                    _interactableBeingHovered.Unglow();
+                    _interactableBeingHovered = null;
+                }
+            }
+
+            // Check for picking up
+            if (Input.GetMouseButtonDown(0))
+            {
+                onClickDuringGameplay.Invoke();
+
+                if (_gameplayInteractionState == GameplayInteractionState.NONE)
+                {
+                    if (_raycastHit2D)
+                    {
+                        _interactable = _raycastHit2D.collider.gameObject.GetComponent<Interactable>();
+                        if (_interactable.PickUp())
+                        {
+                            _holdOffset = _interactable.transform.position - _position;
+                            _gameplayInteractionState = GameplayInteractionState.HOLDING_ITEM;
+                            onPickupItem?.Invoke();
+                            if (_interactableBeingHovered)
+                            {
+                                _interactableBeingHovered.Unglow();
+                                _interactableBeingHovered = null;
+                            }
+                        }
+                        else
+                        {
+                            _interactable = null;
+                        }
+                    }
+                }
+            }
+
+            // Check for releasing
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (_gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
+                {
+                    if (_interactable)
+                    {
+                        // Reset interactble item's position if not dropped successfully
+                        if (!_interactable.DroppedSuccessfully())
+                        {
+                            _interactable.ResetPositionAndRotation();
+                        }
+                        else
+                        {
+                            _interactable.Success();
+                        }
+                        _interactable = null;
+                        onReleaseItem?.Invoke();
+                    }
+
+                    _gameplayInteractionState = GameplayInteractionState.NONE;
+                }
+            }
+
+            if (_gameplayInteractionState == GameplayInteractionState.HOLDING_ITEM)
+            {
+                _interactable.gameObject.transform.position = _position + _holdOffset;
+            }
+
+            /*// Gameplay (interacting with objects) code
             if(GameStateManager.INSTANCE.CurrentGameState == GameState.GAMEPLAY)
             {
                 Ray screenPointToRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -149,7 +233,7 @@ namespace TheMagician
                 {
                     onClickDuringDialogue.Invoke();
                 }
-            }
+            }*/
         }
 
         // Function name says it all
@@ -160,13 +244,13 @@ namespace TheMagician
                 if(_interactable && !Input.GetMouseButton(0)) // I guess the former is more of a double check
                 {
                     // Reset interactble item's position if not dropped successfully
-                    if (!_interactable.Dropped())
+                    if (!_interactable.DroppedSuccessfully())
                     {
                         _interactable.ResetPositionAndRotation();
                     }
                     else
                     {
-                        _interactable.Destroy();
+                        _interactable.Success();
                     }
                     _interactable = null;
                     onReleaseItem?.Invoke();

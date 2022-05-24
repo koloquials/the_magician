@@ -27,7 +27,8 @@ namespace TheMagician
         // This is set under MouseController's OnClickDuringDialogue event
         public void ContinueDialogue()
         {
-            lineView.OnContinueClicked();
+            //if(!dialogueRunner.IsDialogueRunning)
+                lineView.OnContinueClicked();
         }
 
         public bool NodeExists(string nodeName)

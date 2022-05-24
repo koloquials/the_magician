@@ -20,9 +20,10 @@ namespace TheMagician
             base.Awake();
         }
 
-        public override bool Dropped()
+        public override bool DroppedSuccessfully()
         {
             State = State.DROPPED;
+            OnDropped?.Invoke();
 
             Vector3 position = gameObject.transform.position;
             Vector2 size = Vector2.right * 1.0f + Vector2.up * 1.0f;
@@ -53,10 +54,10 @@ namespace TheMagician
             return false;
         }
 
-        public override void Destroy()
+        public override void Success()
         {
             OnDestroyed?.Invoke(this);
-            base.Destroy();
+            base.Success();
         }
     }
 }

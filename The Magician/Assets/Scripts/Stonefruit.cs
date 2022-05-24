@@ -75,7 +75,7 @@ namespace TheMagician
             return true;
         }
 
-        public override bool Dropped()
+        public override bool DroppedSuccessfully()
         {
             State = State.DROPPED;
             _currentTimeHeld = 0f; // Reset time

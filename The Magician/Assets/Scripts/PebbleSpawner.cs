@@ -14,24 +14,31 @@ namespace TheMagician
         [Tooltip("X = min angle and Y = max angle for generating random rotations inbetween those values")]
         [SerializeField] Vector2 varyingRotationAngleMinMax;
 
-        private void Awake()
+        public void GeneratePebbles()
         {
             List<Sprite> spriteVariationCopy = new List<Sprite>(spriteVariations);
 
-            foreach(Pebble pebble in pebbles)
+            foreach (Pebble pebble in pebbles)
             {
-                SpriteRenderer sr = pebble.gameObject.GetComponent<SpriteRenderer>();
-                if(sr) // Probably don't need to check for this since Pebble will require the SpriteRenderer component so that it will always exist
+                SpriteRenderer spriteRenderer = pebble.gameObject.GetComponent<SpriteRenderer>();
+
+                if (spriteRenderer) // Probably don't need to check for this since Pebble will require the SpriteRenderer component so that it will always exist
                 {
+                    if (spriteVariationCopy.Count == 0)
+                    {
+                        spriteVariationCopy.Clear();
+                        spriteVariationCopy = new List<Sprite>(spriteVariations);
+                    }
+
                     int index = Random.Range(0, spriteVariationCopy.Count);
-                    sr.sprite = spriteVariationCopy[index];
+                    spriteRenderer.sprite = spriteVariationCopy[index];
                     spriteVariationCopy.Remove(spriteVariationCopy[index]);
                 }
 
                 pebble.gameObject.transform.Rotate(Vector3.forward, Random.Range(varyingRotationAngleMinMax.x, varyingRotationAngleMinMax.y));
 
                 // Set gameobjects false at the beginning until requested to turn them on
-                if(pebble.gameObject.activeInHierarchy)
+                if (pebble.gameObject.activeInHierarchy)
                 {
                     pebble.gameObject.SetActive(false);
                 }

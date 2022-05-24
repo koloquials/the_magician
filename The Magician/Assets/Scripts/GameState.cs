@@ -8,8 +8,8 @@ namespace TheMagician
     {
         PAUSED = 1 << 0,
         GAMEPLAY = 1 << 1,
-        DIALOGUE = 1 << 2,
-        CREDITS = 1 << 3,
-        GAME_MODE = GAMEPLAY | DIALOGUE
+        //DIALOGUE = 1 << 2, 5/23 - refactoring out
+        CREDITS = 1 << 2,
+        //GAME_MODE = GAMEPLAY | DIALOGUE
     }
 }

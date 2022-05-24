@@ -62,14 +62,14 @@ namespace TheMagician
             return true;
         }
 
-        public virtual bool Dropped()
+        public virtual bool DroppedSuccessfully()
         {
             State = State.DROPPED;
             OnDropped.Invoke();
             return true;
         }
 
-        public virtual void Destroy()
+        public virtual void Success()
         {
             Destroy(gameObject);
         }

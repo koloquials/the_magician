@@ -61,8 +61,11 @@ namespace TheMagician
 
         public static bool IsInGameModeState()
         {
-            GameState state = _currentGameState & GameState.GAME_MODE;
-            return (state == GameState.GAMEPLAY || state == GameState.DIALOGUE);
+            // 5/23 - refactoring out
+            /*GameState state = _currentGameState & GameState.GAME_MODE;
+            return (state == GameState.GAMEPLAY || state == GameState.DIALOGUE);*/
+
+            return _currentGameState == GameState.GAMEPLAY;
         }
     }
 }
