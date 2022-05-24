@@ -10,10 +10,13 @@ namespace TheMagician
         [SerializeField] SpriteRenderer spriteRenderer;
         [SerializeField] float fadeInTime;
         [SerializeField] float fadeOutTime;
+        [SerializeField] float fadeInOutTime;
         [SerializeField] AnimationCurve fadeInCurve;
         [SerializeField] AnimationCurve fadeOutCurve;
+        [SerializeField] AnimationCurve fadeInOutCurve;
         [SerializeField] UnityEvent onFadeInComplete;
-        [SerializeField] UnityEvent onFadeOutComplete;
+        [SerializeField] UnityEvent onFadeOutComplete; 
+        [SerializeField] UnityEvent onFadeInOutComplete;
 
         bool _isAnimating;
         float _currentTime;
@@ -51,14 +54,17 @@ namespace TheMagician
             float normalizedTime = (_currentTime / _targetFadeTime);
 
                 Color color = spriteRenderer.color;
-            color.a = Mathf.Lerp(_startAlpha, _targetAlpha, _currentAnimationCurve.Evaluate(normalizedTime));
+            //color.a = Mathf.Lerp(_startAlpha, _targetAlpha, _currentAnimationCurve.Evaluate(normalizedTime));
+            Debug.Log("current alpha val; " + _currentAnimationCurve.Evaluate(normalizedTime));
+            color.a = _currentAnimationCurve.Evaluate(normalizedTime);
             spriteRenderer.color = color;
 
             if(_currentTime >= _targetFadeTime)
             {
-                _fadeComplete.Invoke();
                 _isAnimating = false;
                 gameObject.SetActive(_gameobjectActiveAfterFade);
+                _fadeComplete.Invoke();
+
             }
         }
 
@@ -71,13 +77,12 @@ namespace TheMagician
             Color color = spriteRenderer.color;
             color.a = 0.0f;
             spriteRenderer.color = color;
-            _startAlpha = 0.0f;
-            _targetAlpha = 1.0f;
+            /*_startAlpha = 0.0f;
+            _targetAlpha = 1.0f;*/
             _currentTime = 0.0f;
             _targetFadeTime = fadeInTime;
             _currentAnimationCurve = fadeInCurve;
             _fadeComplete = onFadeInComplete;
-            Stonefruit sf = GetComponent<Stonefruit>();
         }
 
         public void FadeOut()
@@ -88,13 +93,28 @@ namespace TheMagician
             Color color = spriteRenderer.color;
             color.a = 1.0f;
             spriteRenderer.color = color;
-            _startAlpha = 1.0f;
-            _targetAlpha = 0.0f;
+            /*_startAlpha = 1.0f;
+            _targetAlpha = 0.0f;*/
             _currentTime = 0.0f;
             _targetFadeTime = fadeOutTime;
             _currentAnimationCurve = fadeOutCurve;
             _fadeComplete = onFadeOutComplete;
-            Stonefruit sf = GetComponent<Stonefruit>();
+        }
+
+        public void FadeInOut()
+        {
+            gameObject.SetActive(true);
+            _gameobjectActiveAfterFade = false;
+            _isAnimating = true;
+            _startAlpha = fadeInOutCurve.Evaluate(0.0f);
+            _targetAlpha = fadeInOutCurve.Evaluate(1.0f);
+            _currentTime = 0.0f;
+            _targetFadeTime = fadeInOutTime;
+            _currentAnimationCurve = fadeInOutCurve;
+            _fadeComplete = onFadeInOutComplete;
+            Color color = spriteRenderer.color;
+            color.a = _startAlpha;
+            spriteRenderer.color = color;
         }
 
         public void Complete()
