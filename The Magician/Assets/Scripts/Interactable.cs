@@ -51,6 +51,7 @@ namespace TheMagician
 
         public virtual bool PickUp()
         {
+            if (!ShouldPickup) return false;
             if (State == State.NOT_PICKED_UP_YET)
             {
                 if (OptionalLabel) OptionalLabel.gameObject.SetActive(false);

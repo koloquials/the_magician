@@ -63,6 +63,40 @@ namespace TheMagician
             pebble.OnDestroyed -= DestroyPebble;
             pebbles.Remove(pebble);
         }
+
+        public void FadeOutPebbles(float fadeTime)
+        {
+            foreach(Pebble pebble in pebbles)
+            {
+                SpriteAnimator animator = pebble.gameObject.GetComponent<SpriteAnimator>();
+
+                if(animator != null)
+                {
+                    animator.FadeOut(fadeTime);
+                }
+            }
+        }
+
+        public void MovePebblesFromAToB(float moveTime)
+        {
+            foreach(Pebble pebble in pebbles)
+            {
+                MovementAnimator movementAnimator = pebble.gameObject.GetComponent<MovementAnimator>();
+
+                if(movementAnimator != null)
+                {
+                    movementAnimator.MoveFromAToB(moveTime);
+                }
+            }
+        }
+
+        public void ShouldPickUpPebbles(bool val)
+        {
+            foreach(Pebble pebble in pebbles)
+            {
+                pebble.SetShouldPickup(val);
+            }
+        }
     }
 
 }

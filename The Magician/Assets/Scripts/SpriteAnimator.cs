@@ -8,9 +8,6 @@ namespace TheMagician
     public class SpriteAnimator : MonoBehaviour
     {
         [SerializeField] SpriteRenderer spriteRenderer;
-        [SerializeField] float fadeInTime;
-        [SerializeField] float fadeOutTime;
-        [SerializeField] float fadeInOutTime;
         [SerializeField] AnimationCurve fadeInCurve;
         [SerializeField] AnimationCurve fadeOutCurve;
         [SerializeField] AnimationCurve fadeInOutCurve;
@@ -21,8 +18,6 @@ namespace TheMagician
         bool _isAnimating;
         float _currentTime;
         float _targetFadeTime;
-        float _startAlpha;
-        float _targetAlpha;
         AnimationCurve _currentAnimationCurve;
         bool _gameobjectActiveAfterFade;
         UnityEvent _fadeComplete;
@@ -67,7 +62,7 @@ namespace TheMagician
         }
 
         // The bottom two functions will be called via events
-        public void FadeIn()
+        public void FadeIn(float fadeTime)
         {
             gameObject.SetActive(true);
             _gameobjectActiveAfterFade = true;
@@ -75,15 +70,13 @@ namespace TheMagician
             Color color = spriteRenderer.color;
             color.a = 0.0f;
             spriteRenderer.color = color;
-            /*_startAlpha = 0.0f;
-            _targetAlpha = 1.0f;*/
             _currentTime = 0.0f;
-            _targetFadeTime = fadeInTime;
+            _targetFadeTime = fadeTime;
             _currentAnimationCurve = fadeInCurve;
             _fadeComplete = onFadeInComplete;
         }
 
-        public void FadeOut()
+        public void FadeOut(float fadeTime)
         {
             gameObject.SetActive(true);
             _gameobjectActiveAfterFade = false;
@@ -91,27 +84,23 @@ namespace TheMagician
             Color color = spriteRenderer.color;
             color.a = 1.0f;
             spriteRenderer.color = color;
-            /*_startAlpha = 1.0f;
-            _targetAlpha = 0.0f;*/
             _currentTime = 0.0f;
-            _targetFadeTime = fadeOutTime;
+            _targetFadeTime = fadeTime;
             _currentAnimationCurve = fadeOutCurve;
             _fadeComplete = onFadeOutComplete;
         }
 
-        public void FadeInOut()
+        public void FadeInOut(float fadeTime)
         {
             gameObject.SetActive(true);
             _gameobjectActiveAfterFade = false;
             _isAnimating = true;
-            _startAlpha = fadeInOutCurve.Evaluate(0.0f);
-            _targetAlpha = fadeInOutCurve.Evaluate(1.0f);
             _currentTime = 0.0f;
-            _targetFadeTime = fadeInOutTime;
+            _targetFadeTime = fadeTime;
             _currentAnimationCurve = fadeInOutCurve;
             _fadeComplete = onFadeInOutComplete;
             Color color = spriteRenderer.color;
-            color.a = _startAlpha;
+            color.a = fadeInOutCurve.Evaluate(0.0f);
             spriteRenderer.color = color;
         }
 
@@ -119,6 +108,7 @@ namespace TheMagician
         {
             if (!_isAnimating) return;
             if (!GameStateManager.IsInGameModeState()) return;
+            Debug.Log("completing");
             _currentTime = _targetFadeTime;
         }
     }

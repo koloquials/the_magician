@@ -7,22 +7,22 @@ npc: a harbor, both yours and mine.<br><br>welcome back, my oldest friend.<br> <
 npc: you've returned here for a reason, haven’t you? <br><b>this is where you used to perform your magic.</b><br>yes, such wondrous rites.
 npc: manifested through your being, your will into action.<br>you did. <i>accomplished. <b>created.</b></i><br>with your own two hands.
 npc: <wave a=0.3>the magic you would do, it stirred our hearts.</wave><br>it was joyous, it was cathartic, it was as inexorable as gravity.
-===
-
-title: Stonefruit_1
----
 npc: so perform the rights <br><b>regain your palate,</b>
-npc: <i>taste again the sweet reward</i> 
 ===
 
-title: Stonefruit_2
+title: Stonefruit
 ---
+npc: <i>taste again the sweet reward</i> 
 npc: let us split the fruit once more and <b>begin</b>.
 ===
 
-title: Can't_Cut_It
+title: Can't_Cut_It_1
 ---
 npc: …<br>is something wrong?
+===
+
+title: Can't_Cut_It_2
+---
 npc: try as you might, <i>you cannot do it.</i> <br>the fruit remains unaffected, unpierced.<br>the membrane blemished, but never broken through.
 npc: <b>have you lost your touch?</b>
 npc: you are ‘here’ but no longer <i>present.</i><br>you can ‘act’ but no longer <b>alter.</b><br><br>these have fallen outside your grasp.
@@ -38,11 +38,11 @@ npc: you and i both reveled in you weaving your magic,<br>surely this is not out
 title: Broken_1
 ---
 npc: <b>what broke?</b> 
-npc: what happened?
 ===
 
 title: Broken_2
 ---
+npc: what happened?
 npc: the past<br>and all we were capable of
 npc: …
 npc: <cspace=0.2em><size=24>into which dark waters did they plunge<br>how did we lose them?</size></cspace>

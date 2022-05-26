@@ -33,14 +33,15 @@ namespace TheMagician
 
             if(_currentPhaseIndex < phases.Count)
             {
-                phases[_currentPhaseIndex].End();
                 OnEndPhase?.Invoke();
+                phases[_currentPhaseIndex].End();
             }
 
             _currentPhaseIndex++;
 
             if (_currentPhaseIndex < phases.Count)
             {
+                Debug.Log("ENTERING PHASE: " + _currentPhaseIndex);
                 phases[_currentPhaseIndex].Start();
                 OnContinuePhase?.Invoke();
             }

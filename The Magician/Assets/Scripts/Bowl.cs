@@ -15,15 +15,28 @@ namespace TheMagician
         int _numPebblesToDropTillCompletion = 1;
         int _currentNumPebbledDroppedInside = 0;
 
+        private void Start()
+        {
+            GameStateManager.OnPause.AddListener(PauseAnimator);
+            GameStateManager.OnUnpause.AddListener(UnpauseAnimator);
+        }
+
+        private void OnDestroy()
+        {
+            GameStateManager.OnPause.RemoveListener(PauseAnimator);
+            GameStateManager.OnUnpause.RemoveListener(UnpauseAnimator);
+        }
+
         public void AddedPebble()
         {
             _currentNumPebbledDroppedInside++;
             onAddPebble?.Invoke();
+            animator.Play("Ripple");
 
             if(_currentNumPebbledDroppedInside >= _numPebblesToDropTillCompletion)
             {
-                onComplete.Invoke();
                 _currentNumPebbledDroppedInside = 0; // Reset
+                PhaseManager.INSTANCE.StartNextPhase();
             }
         }
 
@@ -33,9 +46,14 @@ namespace TheMagician
             _currentNumPebbledDroppedInside = 0;
         }
 
-        /*public void PlayWaterRipple()
+        public void UnpauseAnimator()
         {
-            animator.Play("WaterRipple");
-        }*/
+            animator.speed = 1f;
+        }
+
+        public void PauseAnimator()
+        {
+            animator.speed = 0f;
+        }
     }
 }

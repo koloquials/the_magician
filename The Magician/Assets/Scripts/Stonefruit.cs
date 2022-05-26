@@ -18,6 +18,7 @@ namespace TheMagician
         float _currentRotationAngle;
         float _desiredRotationAngle;
         bool _hasSlipped;
+        int _slipTimesUntilNextPhase;
 
         protected override void Awake()
         {
@@ -25,6 +26,7 @@ namespace TheMagician
             rigidBody.gravityScale = 0f;
             rigidBody.velocity = Vector2.zero;
             _hasSlipped = false;
+            _slipTimesUntilNextPhase = 1;
         }
 
         protected override void Start()
@@ -52,6 +54,13 @@ namespace TheMagician
                     rigidBody.gravityScale = gravityScaleAfterSlipping;
                     _currentTimeHeld = 0f;
                     _hasSlipped = true;
+
+                    _slipTimesUntilNextPhase--;
+
+                    if(_slipTimesUntilNextPhase == 0)
+                    {
+                        PhaseManager.INSTANCE.StartNextPhase();
+                    }
                 }
             }
         }
@@ -98,8 +107,23 @@ namespace TheMagician
 
         public override void Glow()
         {
-            if (!ShouldPickup || _hasSlipped) return;
+            if (!ShouldPickup) return;
             if (GlowMaterial) SpriteRenderer.material = GlowMaterial; // if check just in case we don't assign anything
+        }
+
+        public void SetNumberOfSlipsTillNextPhase(int amount)
+        {
+            _slipTimesUntilNextPhase = amount;
+        }
+
+        public void DecreaseHoldTimeTillSlipAmount(float amount)
+        {
+            holdTimeTillSlip -= amount;
+        }
+
+        public void SetHoldTimeTillSlipAmount(float amount)
+        {
+            holdTimeTillSlip = amount;
         }
     }
 }
