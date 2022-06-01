@@ -25,8 +25,9 @@ namespace TheMagician
             rigidBody.velocity = Vector2.zero;
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _currentTimeHeld = 0f;
         }
 

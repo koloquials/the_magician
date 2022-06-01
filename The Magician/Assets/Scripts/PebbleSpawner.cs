@@ -64,6 +64,19 @@ namespace TheMagician
             pebbles.Remove(pebble);
         }
 
+        public void FadeInPebbles(float fadeTime)
+        {
+            foreach (Pebble pebble in pebbles)
+            {
+                SpriteAnimator animator = pebble.gameObject.GetComponent<SpriteAnimator>();
+
+                if (animator != null)
+                {
+                    animator.FadeIn(fadeTime);
+                }
+            }
+        }
+
         public void FadeOutPebbles(float fadeTime)
         {
             foreach(Pebble pebble in pebbles)

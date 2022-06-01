@@ -13,12 +13,14 @@ namespace TheMagician
         [SerializeField] float rotationTimeAfterPickup;
         [SerializeField] Vector2 varyingRotationAngleMinMax;
         [SerializeField] UnityEvent onSlipped;
+        [SerializeField] UnityEvent onTouchedFirstTime;
 
         float _currentTimeHeld;
         float _currentRotationAngle;
         float _desiredRotationAngle;
         bool _hasSlipped;
         int _slipTimesUntilNextPhase;
+        bool _hasBeenTouchedOnce;
 
         protected override void Awake()
         {
@@ -27,6 +29,7 @@ namespace TheMagician
             rigidBody.velocity = Vector2.zero;
             _hasSlipped = false;
             _slipTimesUntilNextPhase = 1;
+            _hasBeenTouchedOnce = false;
         }
 
         protected override void Start()
@@ -108,6 +111,11 @@ namespace TheMagician
         public override void Glow()
         {
             if (!ShouldPickup) return;
+            if (!_hasBeenTouchedOnce)
+            {
+                onTouchedFirstTime?.Invoke();
+                _hasBeenTouchedOnce = true;
+            }
             if (GlowMaterial) SpriteRenderer.material = GlowMaterial; // if check just in case we don't assign anything
         }
 
