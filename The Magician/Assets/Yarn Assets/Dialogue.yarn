@@ -108,10 +108,13 @@ npc: <i>you yearn for what you lost because it matters.</i><br>and it is tied in
 npc: <b>and to find again.</b>
 ===
 
-title: Moral
+title: Moral_1
 ---
 npc: you have to trust that<br>one day,
 npc: little by little
-npc: your <b>magic</b> <i>will</i> return.
 ===
 
+title: Moral_2
+---
+npc: your <b>magic</b> <i>will</i> return.
+===

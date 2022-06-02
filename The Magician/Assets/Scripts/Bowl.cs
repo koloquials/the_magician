@@ -8,12 +8,11 @@ namespace TheMagician
     //[RequireComponent(typeof(Animator))]
     public class Bowl : MonoBehaviour
     {
-        [SerializeField] UnityEvent onComplete;
-        [SerializeField] UnityEvent onAddPebble;
-        [SerializeField] Animator animator;
+        [SerializeField] protected UnityEvent onAddPebble;
+        [SerializeField] protected Animator animator;
 
         int _numPebblesToDropTillCompletion = 1;
-        int _currentNumPebbledDroppedInside = 0;
+        protected int _currentNumPebbledDroppedInside = 0;
 
         private void Start()
         {
@@ -27,7 +26,7 @@ namespace TheMagician
             GameStateManager.OnUnpause.RemoveListener(UnpauseAnimator);
         }
 
-        public void AddedPebble()
+        public virtual void AddedPebble()
         {
             _currentNumPebbledDroppedInside++;
             onAddPebble?.Invoke();

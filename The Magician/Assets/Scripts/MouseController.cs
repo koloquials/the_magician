@@ -127,7 +127,8 @@ namespace TheMagician
                         }
                         else
                         {
-                            _interactable.Success();
+                            if (_interactable)
+                                _interactable.Success();
                         }
                         _interactable = null;
                         onReleaseItem?.Invoke();
@@ -250,7 +251,8 @@ namespace TheMagician
                     }
                     else
                     {
-                        _interactable.Success();
+                        if(_interactable)
+                            _interactable.Success();
                     }
                     _interactable = null;
                     onReleaseItem?.Invoke();
