@@ -18,7 +18,6 @@ namespace TheMagician
         float _currentTimeHeld;
         float _currentRotationAngle;
         float _desiredRotationAngle;
-        bool _hasSlipped;
         int _slipTimesUntilNextPhase;
         bool _hasBeenTouchedOnce;
 
@@ -27,7 +26,6 @@ namespace TheMagician
             base.Awake();
             rigidBody.gravityScale = 0f;
             rigidBody.velocity = Vector2.zero;
-            _hasSlipped = false;
             _slipTimesUntilNextPhase = 1;
             _hasBeenTouchedOnce = false;
         }
@@ -56,7 +54,6 @@ namespace TheMagician
                     onSlipped?.Invoke();
                     rigidBody.gravityScale = gravityScaleAfterSlipping;
                     _currentTimeHeld = 0f;
-                    _hasSlipped = true;
 
                     _slipTimesUntilNextPhase--;
 
@@ -91,7 +88,6 @@ namespace TheMagician
         {
             State = State.DROPPED;
             _currentTimeHeld = 0f; // Reset time
-            _hasSlipped = false;
             ResetRigidbody();
             return false;
         }
@@ -99,7 +95,6 @@ namespace TheMagician
         public override void SetShouldPickup(bool val)
         {
             ShouldPickup = val;
-            if (val) _hasSlipped = false;
         }
 
         public void ResetRigidbody()

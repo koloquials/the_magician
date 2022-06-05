@@ -108,7 +108,6 @@ namespace TheMagician
         {
             if (!_isAnimating) return;
             if (!GameStateManager.IsInGameModeState()) return;
-            Debug.Log("completing");
             _currentTime = _targetFadeTime;
         }
     }

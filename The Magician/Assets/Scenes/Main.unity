@@ -1715,7 +1715,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 19c65ab1b311f44b484bd805b8911975, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3342,7 +3342,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: e3843ce90401b4f08816674008514300, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5600,7 +5600,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 19c65ab1b311f44b484bd805b8911975, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13972,6 +13972,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1099617772}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls:
@@ -13986,6 +13998,18 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1099617772}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
   - isDialogue: 1
     dialogueNodeName: Broken_1
@@ -14320,9 +14344,45 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 431457720}
+          m_TargetAssemblyTypeName: TheMagician.Bowl, Assembly-CSharp
+          m_MethodName: RegisterAddPebbleCallback
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1152675828}
+            m_ObjectArgumentAssemblyTypeName: TheMagician.Darkness, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1152675828}
+          m_TargetAssemblyTypeName: TheMagician.Darkness, Assembly-CSharp
+          m_MethodName: SetClickTimesUntilDark
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 431457720}
+          m_TargetAssemblyTypeName: TheMagician.Bowl, Assembly-CSharp
+          m_MethodName: UnregisterAddPebbleCallback
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1152675828}
+            m_ObjectArgumentAssemblyTypeName: TheMagician.Darkness, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - isDialogue: 1
     dialogueNodeName: Silence
     phaseDescription: '"...but you know"'
@@ -15251,6 +15311,7 @@ GameObject:
   - component: {fileID: 1152675825}
   - component: {fileID: 1152675827}
   - component: {fileID: 1152675826}
+  - component: {fileID: 1152675828}
   m_Layer: 0
   m_Name: npc
   m_TagString: Untagged
@@ -15487,6 +15548,49 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFadeInOutComplete:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1152675828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152675823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02b91b767cec364ba14f64940d119b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1152675825}
+  targetColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTime: 0.6
+  timesUntilDark: 3
+  darknessCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  onDarknessComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1162105391
@@ -15949,7 +16053,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: b37e3a1c6b6c0421989d986fb010ecb0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -25611,7 +25715,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: bbae6cc76c04844afbb0ed65c204a1da, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

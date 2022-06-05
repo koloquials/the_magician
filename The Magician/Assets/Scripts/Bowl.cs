@@ -54,5 +54,15 @@ namespace TheMagician
         {
             animator.speed = 0f;
         }
+
+        public void RegisterAddPebbleCallback(Darkness darkness)
+        {
+            onAddPebble.AddListener(darkness.FadeToBlackByAlreadySetAmount);
+        }
+
+        public void UnregisterAddPebbleCallback(Darkness darkness)
+        {
+            onAddPebble.RemoveListener(darkness.FadeToBlackByAlreadySetAmount);
+        }
     }
 }
