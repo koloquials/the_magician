@@ -17,6 +17,12 @@ namespace TheMagician
         {
             _isPlaying = false;
             _currentTime = 0f;
+            PhaseManager.INSTANCE.OnEndPhase.AddListener(Complete);
+        }
+
+        private void OnDestroy()
+        {
+            PhaseManager.INSTANCE.OnEndPhase.RemoveListener(Complete);
         }
 
         private void Update()
@@ -30,7 +36,8 @@ namespace TheMagician
             {
                 _isPlaying = false;
                 _currentTime = 0f;
-                secondAudio.Play();
+                if(secondAudio != null)
+                    secondAudio.Play();
             }
         }
 
@@ -38,7 +45,18 @@ namespace TheMagician
         {
             _isPlaying = true;
             _currentTime = 0f;
-            firstAudio.Play();
+
+            if(firstAudio != null)
+                firstAudio.Play();
+        }
+
+        public void Complete()
+        {
+            if (!_isPlaying) return;
+            if (!GameStateManager.IsInGameModeState()) return;
+
+            _isPlaying = false;
+            _currentTime = 0f;
         }
     }
 }

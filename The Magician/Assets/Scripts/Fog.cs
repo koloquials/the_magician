@@ -12,6 +12,7 @@ namespace TheMagician
         [SerializeField] float opacityDecreaseAmount;
         [SerializeField] float fogClearThreshold;
         [SerializeField] UnityEvent onFogClear;
+        [SerializeField] UnityEvent onFogUpdate;
 
         float _currentOpacity;
         float _opacity = 1f;
@@ -43,6 +44,8 @@ namespace TheMagician
             Color color = spriteRenderer.color;
             color.a = _currentOpacity;
             spriteRenderer.color = color;
+
+            onFogUpdate?.Invoke();
 
             if(_currentOpacity <= fogClearThreshold)
             {

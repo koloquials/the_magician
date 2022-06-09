@@ -1423,7 +1423,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: b4dd3a6471f4845d2b55f832f7b7b877, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2342,7 +2342,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7eccca515af8442ff9f873e221979353, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4732,7 +4732,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: e03e0e6d71c954cf9a132492349756d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.16
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6154,7 +6154,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8ccc35248b0c54bacbf2cb5a37a6c551, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11500,7 +11500,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7e74c1085217d4ad08214a657c6afdac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11875,6 +11875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954970889}
   - component: {fileID: 954970890}
+  - component: {fileID: 954970891}
   m_Layer: 0
   m_Name: Ambience(Looped)
   m_TagString: Untagged
@@ -11992,6 +11993,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &954970891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954970888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c350720b8482b4aab9acb6021566e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 954970890}
+  fadeInAmount: 0.15
+  fadeOutAmount: 0.15
+  fadeTime: 0.8
 --- !u!1 &961434418
 GameObject:
   m_ObjectHideFlags: 0
@@ -13091,6 +13108,7 @@ GameObject:
   - component: {fileID: 1062850188}
   - component: {fileID: 1062850190}
   - component: {fileID: 1062850189}
+  - component: {fileID: 1062850191}
   m_Layer: 0
   m_Name: Water Ripple
   m_TagString: Untagged
@@ -13182,6 +13200,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1062850191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062850187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327924989d190364392c4110952f9bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondAudioDelayTime: 0.5
+  firstAudio: {fileID: 0}
+  secondAudio: {fileID: 492639166}
 --- !u!1 &1064068750
 GameObject:
   m_ObjectHideFlags: 0
@@ -13671,7 +13704,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 76881dee3a4174789a0d93f5c5f9c968, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13940,7 +13973,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 77431b10420614c948e1d8f6c13a8562, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14039,7 +14072,7 @@ GameObject:
   - component: {fileID: 1099617772}
   - component: {fileID: 1099617773}
   m_Layer: 6
-  m_Name: Fog_PLACEHOLDER
+  m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14218,6 +14251,45 @@ MonoBehaviour:
       - m_Target: {fileID: 1135399646}
         m_TargetAssemblyTypeName: TheMagician.PhaseManager, Assembly-CSharp
         m_MethodName: StartNextPhase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1077012454}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFogUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1082078157}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 145022408}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15091,6 +15163,66 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: PlayTrack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: SetStartVolume
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: SetTargetVolume
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: SetTrackVolume
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: FadeInToTarget
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls:
@@ -15120,7 +15252,7 @@ MonoBehaviour:
           m_CallState: 2
   - isDialogue: 1
     dialogueNodeName: Broken_1
-    phaseDescription: '"what broke?"
+    phaseDescription: '"what broke?" TODO
 
 '
     onStartPhase:
@@ -15302,6 +15434,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: SetFadeOutAmount
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.15
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: FadeOutByDecrement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls: []
@@ -15383,6 +15539,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1062850191}
+          m_TargetAssemblyTypeName: TheMagician.DelayedAudio, Assembly-CSharp
+          m_MethodName: PlayAudioSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls: []
@@ -15440,6 +15608,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: FadeOutByDecrement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls: []
@@ -15487,6 +15667,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: FadeOutByDecrement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls:
@@ -15516,6 +15708,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 954970891}
+          m_TargetAssemblyTypeName: TheMagician.MusicFader, Assembly-CSharp
+          m_MethodName: FadeOutByDecrement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -16052,6 +16256,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 21300000, guid: c5beb1bf1187d4d61bb25043fc97e2ea, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 41879168}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -17172,7 +17388,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: d435a236ba61c4181994cb7844665912, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -17426,7 +17642,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 47d17a91a9375463797cb8880a931a12, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -17879,6 +18095,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1202152446}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19827,7 +20055,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: e6c2ddffae90f4f648bcc1017e5d2b99, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -21018,6 +21246,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1213449990}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26013,6 +26253,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1388502210}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!212 &1968000000
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29597,7 +29849,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2113437652653664457, guid: ecde993b706ddeb41bd9218506b9a8c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: fc2c774b126e646c39a9a9eb654ae003, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

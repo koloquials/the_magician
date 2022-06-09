@@ -84,6 +84,12 @@ namespace TheMagician
             _targetVolume = 0f;
         }
 
+        public void FadeInToTarget()
+        {
+            _isFading = true;
+            _startVolume = track.volume;
+        }
+
         public void SetFadeInAmount(float val)
         {
             fadeInAmount = val;
