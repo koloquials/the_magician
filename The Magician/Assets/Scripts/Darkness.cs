@@ -14,6 +14,7 @@ namespace TheMagician
         [SerializeField] int timesUntilDark;
         [SerializeField] AnimationCurve darknessCurve;
         [SerializeField] UnityEvent onDarknessComplete;
+        [SerializeField] UnityEvent onDarknessUpdate;
 
         bool _isAnimating;
         float _currentTime;
@@ -81,7 +82,8 @@ namespace TheMagician
             _targetColor.r *= (_timesUntilDark - _currentTimesUntilDark) / (float)_timesUntilDark;
             _targetColor.g *= (_timesUntilDark - _currentTimesUntilDark) / (float)_timesUntilDark;
             _targetColor.b *= (_timesUntilDark - _currentTimesUntilDark) / (float)_timesUntilDark;
-            Debug.Log("target color: " + _targetColor);
+
+            onDarknessUpdate?.Invoke();
         }
 
         public void SetTargetFadeTime(float fadeTime)
