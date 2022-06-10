@@ -14344,8 +14344,8 @@ MonoBehaviour:
     onEndPhase:
       m_PersistentCalls:
         m_Calls: []
-  - isDialogue: 0
-    dialogueNodeName: 
+  - isDialogue: 1
+    dialogueNodeName: Intro_1
     phaseDescription: 
     onStartPhase:
       m_PersistentCalls:
@@ -14359,18 +14359,6 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0.3
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 497533702}
-          m_TargetAssemblyTypeName: TheMagician.JustTime, Assembly-CSharp
-          m_MethodName: StartTicking
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0.31
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -14422,12 +14410,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 26390919}
+          m_TargetAssemblyTypeName: TheMagician.Bowl, Assembly-CSharp
+          m_MethodName: SetPebbleAmountGoal
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onEndPhase:
       m_PersistentCalls:
         m_Calls: []
   - isDialogue: 1
-    dialogueNodeName: Intro
-    phaseDescription: 
+    dialogueNodeName: Intro_2
+    phaseDescription: '"your magic will return"'
     onStartPhase:
       m_PersistentCalls:
         m_Calls:
@@ -14438,7 +14438,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 7
+            m_IntArgument: 5
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
