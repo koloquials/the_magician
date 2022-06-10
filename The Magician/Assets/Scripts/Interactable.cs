@@ -29,6 +29,8 @@ namespace TheMagician
         protected SpriteRenderer SpriteRenderer;
         protected Material OriginalMaterial;
 
+        protected bool AlreadyGlowing;
+
         protected virtual void Awake()
         {
             State = State.NOT_PICKED_UP_YET;
@@ -37,6 +39,7 @@ namespace TheMagician
             ShouldPickup = true;
             SpriteRenderer = GetComponent<SpriteRenderer>();
             OriginalMaterial = SpriteRenderer.material;
+            AlreadyGlowing = false;
         }
 
         protected virtual void Start()
@@ -104,12 +107,17 @@ namespace TheMagician
         public virtual void Glow()
         {
             if (!ShouldPickup) return;
-            if(GlowMaterial) SpriteRenderer.material = GlowMaterial; // if check just in case we don't assign anything
+            if (GlowMaterial && !AlreadyGlowing)
+            {
+                SpriteRenderer.material = GlowMaterial; // if check just in case we don't assign anything
+                AlreadyGlowing = true;
+            }
         }
 
         public virtual void Unglow()
         {
             SpriteRenderer.material = OriginalMaterial;
+            AlreadyGlowing = false;
         }
     }
 }

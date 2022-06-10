@@ -14,6 +14,13 @@ namespace TheMagician
         [Tooltip("X = min angle and Y = max angle for generating random rotations inbetween those values")]
         [SerializeField] Vector2 varyingRotationAngleMinMax;
 
+        [System.Serializable]
+        struct PebbleSprite
+        {
+            Sprite sprite;
+            Vector2 rippleFocalPoint;
+        }
+
         public void GeneratePebbles()
         {
             List<Sprite> spriteVariationCopy = new List<Sprite>(spriteVariations);
