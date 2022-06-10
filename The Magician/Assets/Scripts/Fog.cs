@@ -8,7 +8,7 @@ namespace TheMagician
 {
     public class Fog : Interactable
     {
-        [SerializeField] SpriteRenderer spriteRenderer;
+        [SerializeField] SpriteRenderer[] spriteRenderers;
         [SerializeField] float opacityDecreaseAmount;
         [SerializeField] float fogClearThreshold;
         [SerializeField] UnityEvent onFogClear;
@@ -41,9 +41,12 @@ namespace TheMagician
 
             _currentOpacity = Mathf.Clamp(_currentOpacity, 0f, 1f);
 
-            Color color = spriteRenderer.color;
-            color.a = _currentOpacity;
-            spriteRenderer.color = color;
+            foreach(SpriteRenderer spriteRenderer in spriteRenderers)
+            {
+                Color color = spriteRenderer.color;
+                color.a = _currentOpacity;
+                spriteRenderer.color = color;
+            }
 
             onFogUpdate?.Invoke();
 
