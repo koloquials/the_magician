@@ -14,10 +14,12 @@ namespace TheMagician
 
         RaycastHit2D _contactHit;
         public Action<Pebble> OnDestroyed;
+        private Vector2 _rippleFocalPoint;
 
         protected override void Awake()
         {
             base.Awake();
+            _rippleFocalPoint = Vector2.right * 0.5f + Vector2.up * 0.5f;
         }
 
         public override bool DroppedSuccessfully()
@@ -58,6 +60,17 @@ namespace TheMagician
         {
             OnDestroyed?.Invoke(this);
             base.Success();
+        }
+
+        public override void Glow()
+        {
+            base.Glow();
+            GlowMaterial.SetVector("_FocalPoint", _rippleFocalPoint);
+        }
+
+        public void SetRippleFocalPoint(Vector2 focalPoint)
+        {
+            _rippleFocalPoint = focalPoint;
         }
     }
 }

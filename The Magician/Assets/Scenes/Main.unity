@@ -3632,11 +3632,16 @@ MonoBehaviour:
   - {fileID: 31381124}
   - {fileID: 2063786398}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &214656232
 Transform:
@@ -4185,11 +4190,16 @@ MonoBehaviour:
   - {fileID: 1028217576}
   - {fileID: 554809861}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &274712118
 Transform:
@@ -4577,11 +4587,16 @@ MonoBehaviour:
   - {fileID: 1074711822}
   - {fileID: 5953635}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &308156476
 Transform:
@@ -12559,11 +12574,16 @@ MonoBehaviour:
   - {fileID: 277347243}
   - {fileID: 1835787335}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &977668205
 Transform:
@@ -16966,11 +16986,16 @@ MonoBehaviour:
   - {fileID: 1591103969}
   - {fileID: 389105078}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &1149745813
 Transform:
@@ -18847,11 +18872,16 @@ MonoBehaviour:
   - {fileID: 1392155146}
   - {fileID: 1528420905}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &1275230813
 Transform:
@@ -20359,11 +20389,16 @@ MonoBehaviour:
   - {fileID: 2072075833}
   - {fileID: 651677426}
   spriteVariations:
-  - {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
-  - {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
-  - {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
-  - {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
-  - {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+  - sprite: {fileID: 21300000, guid: 77675933899d547f8860d402e4ffd73e, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.55}
+  - sprite: {fileID: 21300000, guid: be943cc832b0347089fe4f9c6fee3fa5, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.5}
+  - sprite: {fileID: 21300000, guid: f20e16fe611b94b3a846dae2f7812f9c, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.6}
+  - sprite: {fileID: 21300000, guid: e6f3038433ec943c6aea0c744a1dc69f, type: 3}
+    rippleFocalPoint: {x: 0.52, y: 0.56}
+  - sprite: {fileID: 21300000, guid: 4a762f35acb6a4c329306eea27083479, type: 3}
+    rippleFocalPoint: {x: 0.56, y: 0.36}
   varyingRotationAngleMinMax: {x: -30, y: 30}
 --- !u!4 &1387261515
 Transform:

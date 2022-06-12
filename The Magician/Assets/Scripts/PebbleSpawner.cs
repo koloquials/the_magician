@@ -9,7 +9,7 @@ namespace TheMagician
         [Tooltip("Assign the pebbles that will be replaced by randomly generated sprites, rotations, etc. at their locations")]
         [SerializeField] List<Pebble> pebbles;
 
-        [SerializeField] List<Sprite> spriteVariations;
+        [SerializeField] List<PebbleSprite> spriteVariations;
 
         [Tooltip("X = min angle and Y = max angle for generating random rotations inbetween those values")]
         [SerializeField] Vector2 varyingRotationAngleMinMax;
@@ -17,13 +17,13 @@ namespace TheMagician
         [System.Serializable]
         struct PebbleSprite
         {
-            Sprite sprite;
-            Vector2 rippleFocalPoint;
+            public Sprite sprite;
+            public Vector2 rippleFocalPoint;
         }
 
         public void GeneratePebbles()
         {
-            List<Sprite> spriteVariationCopy = new List<Sprite>(spriteVariations);
+            List<PebbleSprite> spriteVariationCopy = new List<PebbleSprite>(spriteVariations);
 
             foreach (Pebble pebble in pebbles)
             {
@@ -34,11 +34,12 @@ namespace TheMagician
                     if (spriteVariationCopy.Count == 0)
                     {
                         spriteVariationCopy.Clear();
-                        spriteVariationCopy = new List<Sprite>(spriteVariations);
+                        spriteVariationCopy = new List<PebbleSprite>(spriteVariations);
                     }
 
                     int index = Random.Range(0, spriteVariationCopy.Count);
-                    spriteRenderer.sprite = spriteVariationCopy[index];
+                    spriteRenderer.sprite = spriteVariationCopy[index].sprite;
+                    pebble.SetRippleFocalPoint(spriteVariationCopy[index].rippleFocalPoint);
                     spriteVariationCopy.Remove(spriteVariationCopy[index]);
                 }
 

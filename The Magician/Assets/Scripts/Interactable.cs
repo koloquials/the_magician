@@ -40,6 +40,9 @@ namespace TheMagician
             SpriteRenderer = GetComponent<SpriteRenderer>();
             OriginalMaterial = SpriteRenderer.material;
             AlreadyGlowing = false;
+
+            if(GlowMaterial)
+                GlowMaterial = new Material(GlowMaterial);
         }
 
         protected virtual void Start()
@@ -50,6 +53,7 @@ namespace TheMagician
         protected void OnDestroy()
         {
             PhaseManager.INSTANCE.OnEndPhase.RemoveListener(Unglow);
+            Destroy(GlowMaterial);
         }
 
         public virtual bool PickUp()
