@@ -67,5 +67,10 @@ namespace TheMagician
 
             return _currentGameState == GameState.GAMEPLAY;
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

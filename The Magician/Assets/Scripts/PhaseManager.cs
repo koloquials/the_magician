@@ -41,7 +41,6 @@ namespace TheMagician
 
             if (_currentPhaseIndex < phases.Count)
             {
-                Debug.Log("ENTERING PHASE: " + _currentPhaseIndex);
                 phases[_currentPhaseIndex].Start();
                 OnContinuePhase?.Invoke();
             }
