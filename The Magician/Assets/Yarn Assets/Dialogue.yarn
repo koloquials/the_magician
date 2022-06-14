@@ -63,11 +63,15 @@ npc: <i>you remember, as do i, with clarity.<br>all these hands used to be able 
 npc: <i>every question:</i> (why can't you do it anymore?<br>when did this all happen? how?) <i>bobs to the surface.</i>
 ===
 
-title: But_Now
+title: But_Now_1
 ---
 npc: all you can do now…
 npc: <i>it is just pebbles in the water.</i>
 npc: <i>a little, just a little, only a little.</i>
+===
+
+title: But_Now_2
+---
 npc: <b>nothing at all</b>, infinitesimal.
 ===
 

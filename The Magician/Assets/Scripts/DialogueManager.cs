@@ -10,7 +10,7 @@ namespace TheMagician
     public class DialogueManager : MonoBehaviour
     {
         [SerializeField] DialogueRunner dialogueRunner;
-        [SerializeField] LineView lineView;
+        [SerializeField] CustomLineViewer lineView;
 
         public static DialogueManager INSTANCE;
 
@@ -19,12 +19,16 @@ namespace TheMagician
             if(!INSTANCE) INSTANCE = this;
         }
 
-        private void Start()
+        private void Update()
         {
-            
+            //Debug.Log(lineView.IsTextRunning);
         }
 
-        // This is set under MouseController's OnClickDuringDialogue event
+        public bool IsDialogueRunning()
+        {
+            return lineView.IsTextRunning;
+        }
+
         public void ContinueDialogue()
         {
             lineView.OnContinueClicked();
@@ -37,7 +41,7 @@ namespace TheMagician
 
         public void StopDialogue()
         {
-            //lineView.StopAllCoroutines();
+            lineView.StopAllCoroutines();
             dialogueRunner.Stop();
         }
 
