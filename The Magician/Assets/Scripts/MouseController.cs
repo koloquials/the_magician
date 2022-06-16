@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Yarn;
 using Yarn.Unity;
-using Yarn.Unity.Editor;
+//using Yarn.Unity.Editor;
 
 namespace TheMagician
 {
