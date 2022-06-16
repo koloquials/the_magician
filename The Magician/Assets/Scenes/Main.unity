@@ -6221,7 +6221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &479547600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8599,10 +8599,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9297983, g: 0.6084906, b: 1, a: 1}
-    m_PressedColor: {r: 0.538907, g: 0.15566038, b: 0.6226415, a: 1}
-    m_SelectedColor: {r: 0.97647065, g: 0.58431375, b: 0.30588236, a: 1}
-    m_DisabledColor: {r: 0.3662171, g: 0.27549842, b: 0.38679248, a: 1}
+    m_HighlightedColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    m_PressedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+    m_SelectedColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}
+    m_DisabledColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -13253,7 +13253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1025368726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13295,9 +13295,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025368725}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -23890,6 +23890,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 727275130808400376, guid: 91b084eee77c82449a6f831cd891a39b, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 766350564771113449, guid: 91b084eee77c82449a6f831cd891a39b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1666561578541543305, guid: 91b084eee77c82449a6f831cd891a39b, type: 3}
